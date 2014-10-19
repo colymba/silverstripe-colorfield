@@ -1,10 +1,6 @@
 SilverStripe COLOR FIELD
 ========================
 
-[![Latest Stable Version](https://poser.pugx.org/colymba/silverstripe-colorfield/v/stable.svg)](https://github.com/colymba/silverstripe-colorfield/releases)
-[![Latest Unstable Version](https://poser.pugx.org/colymba/silverstripe-colorfield/v/unstable.svg)](https://github.com/colymba/silverstripe-colorfield/tree/master)
-[![License](https://poser.pugx.org/colymba/silverstripe-colorfield/license.svg)](#license-bsd-simplified)
-
 Color picker and DBField field with attitude.
 
 # ColorField
