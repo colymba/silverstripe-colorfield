@@ -1,0 +1,51 @@
+.field.color {
+  min-width: 810px; }
+
+.minicolors {
+  float: left;
+  margin: 0 20px 20px 0; }
+
+.colorField, .colorFieldProxy {
+  display: none; }
+
+.colorFieldPreview {
+  float: left;
+  width: 154px;
+  height: 154px;
+  overflow: hidden;
+  margin: 0 20px 20px 0;
+  background-color: #fff;
+  border-radius: 5px; }
+  .colorFieldPreview .color {
+    float: left;
+    width: 100%;
+    height: 100%; }
+
+.colorFieldControls {
+  float: left;
+  width: 236px;
+  /*154px;*/
+  margin-top: 0; }
+  .colorFieldControls label.left {
+    width: auto; }
+  .colorFieldControls .mode {
+    float: left;
+    width: 100%;
+    margin-bottom: 6px; }
+  .colorFieldControls .hex, .colorFieldControls .alpha {
+    float: left;
+    width: 100%; }
+    .colorFieldControls .hex input, .colorFieldControls .alpha input {
+      float: right;
+      width: 180px; }
+  .colorFieldControls .rgb {
+    float: left;
+    width: 100%;
+    margin: 10px 0 10px 0; }
+    .colorFieldControls .rgb input {
+      float: left;
+      width: 55px; }
+      .colorFieldControls .rgb input.r, .colorFieldControls .rgb input.g {
+        margin-right: 10px; }
+
+/*# sourceMappingURL=ColorField.css.map */

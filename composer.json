@@ -1,0 +1,14 @@
+{
+  "name": "colymba/silverstripe-colorfield",
+  "description": "Color picker and DBField field with attitude.",
+  "type": "silverstripe-module",
+  "keywords": ["silverstripe", "color", "colour", "color picker", "colour field", "DBField"],
+  "authors": [{
+    "name": "Thierry Francois @colymba",
+    "email": "thierry@colymba.com"
+  }],
+  "require": {
+    "silverstripe/framework": ">=3"
+  },
+  "minimum-stability": "dev"
+}

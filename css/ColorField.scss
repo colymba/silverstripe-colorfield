@@ -1,0 +1,84 @@
+.field.color
+{
+  min-width: 810px;
+}
+
+.minicolors
+{
+  float: left;
+  margin: 0 20px 20px 0;
+}
+
+.colorField, .colorFieldProxy
+{
+  display: none;
+}
+
+.colorFieldPreview
+{
+  float: left;
+  width: 154px;
+  height: 154px;
+  overflow: hidden;
+
+  margin: 0 20px 20px 0;
+  
+  background-color: #fff;
+  border-radius: 5px;
+
+  .color
+  {
+    float: left;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.colorFieldControls
+{
+  float: left;
+  width: 236px; /*154px;*/
+  margin-top: 0;
+
+  label.left
+  {
+    width: auto;
+  }
+
+  .mode
+  {
+    float: left;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .hex, .alpha
+  {
+    float: left;
+    width: 100%;
+
+    input
+    {
+      float: right;
+      width: 180px;
+    }
+  }
+
+  .rgb
+  {
+    float: left;
+    width: 100%;
+    margin: 10px 0 10px 0;
+
+    input
+    {
+      float: left;
+      width: 55px;
+
+      &.r, &.g
+      {
+        margin-right: 10px;
+      }
+    }
+  }
+}
