@@ -1,14 +1,19 @@
 {
   "name": "colymba/silverstripe-colorfield",
-  "description": "Color picker and DBField field with attitude.",
   "type": "silverstripe-module",
+  "description": "SilverStripe 3 Color picker and DBField field with attitude.",
   "keywords": ["silverstripe", "color", "colour", "color picker", "colour field", "DBField"],
+  "license": "BSD Simplified",
   "authors": [{
-    "name": "Thierry Francois @colymba",
+    "name": "Thierry Francois",
     "email": "thierry@colymba.com"
   }],
   "require": {
     "silverstripe/framework": ">=3"
   },
+  "repositories": [{
+    "type": "vcs",
+    "url": "git@github.com:colymba/silverstripe-colorfield.git"
+  }],
   "minimum-stability": "dev"
 }

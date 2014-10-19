@@ -7,14 +7,14 @@ SilverStripe COLOR FIELD
 
 Color picker and DBField field with attitude.
 
-![preview](screenshots/preview.png)
-![preview](screenshots/preview_2.png)
-
 # ColorField
 The `ColorField` form field implementing a color picker with extra input methods. Using [jQuery MiniColors](https://github.com/claviska/jquery-minicolors).
 
+![preview](screenshots/preview.png)
+![preview](screenshots/preview_2.png)
+
 # Color
-The `Color` DBField for storing and manipulating colors:
+The `Color` DBField for storing and manipulating colors.
 - `$color->RGB()`, `$color->Hex()`, `$color->Alpha()`
 - `Color::hex_to_rgb($hex)`, `Color::rgb_to_hex($r, $g, $b)`
 - `$Color.R`, `$Color.G`, `$Color.B`, `$Color.Alpha`, `$Color.Hex`
@@ -25,6 +25,7 @@ The `Color` DBField for storing and manipulating colors:
 ## Installation
 ### Composer
 * `composer require "colymba/silverstripe-colorfield:*"`
+
 ### Manual
 * Download and copy module in SilverStripe root directory
 
