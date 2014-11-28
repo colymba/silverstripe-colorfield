@@ -195,7 +195,8 @@ class Color extends DBField {
    */
   public function R()
   {
-    return self::hex_to_rgb($this->hex)['R'];
+    $rgb = self::hex_to_rgb($this->hex);
+    return $rgb['R'];
   }
 
   /**
@@ -204,7 +205,8 @@ class Color extends DBField {
    */
   public function G()
   {
-    return self::hex_to_rgb($this->hex)['G'];
+    $rgb = self::hex_to_rgb($this->hex);
+    return $rgb['G'];
   }
 
   /**
@@ -213,7 +215,8 @@ class Color extends DBField {
    */
   public function B()
   {
-    return self::hex_to_rgb($this->hex)['B'];
+    $rgb = self::hex_to_rgb($this->hex);
+    return $rgb['B'];
   }
 
   /**
