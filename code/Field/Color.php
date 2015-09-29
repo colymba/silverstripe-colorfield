@@ -54,7 +54,12 @@ class Color extends DBField {
       'parts' => $parts
     );
 
-    DB::require_field($this->tableName, $this->name, $values);
+    // Add support for both SS DB API 3.2 and <3.2
+    if (method_exists('DB', 'require_field')) {
+      DB::require_field($this->tableName, $this->name, $values);
+    } else {
+      DB::requireField($this->tableName, $this->name, $values);
+    }
   }
 
   /**
