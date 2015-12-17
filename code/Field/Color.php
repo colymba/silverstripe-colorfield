@@ -11,9 +11,10 @@
  * @package SS_ColorField
  * @subpackage Field
  */
-class Color extends DBField {
+class Color extends DBField
+{
 
-  /**
+    /**
    * Color Hexadecimal value
    * @var string
    */
@@ -30,18 +31,20 @@ class Color extends DBField {
    * 
    * @param string $name Field name
    */
-  public function __construct($name = null) {
-    $this->defaultVal = '000000100';
+  public function __construct($name = null)
+  {
+      $this->defaultVal = '000000100';
 
-    parent::__construct($name);
+      parent::__construct($name);
   }
 
   /**
    * (non-PHPdoc)
    * @see DBField::requireField()
    */
-  public function requireField() {
-    $parts = array(
+  public function requireField()
+  {
+      $parts = array(
       'datatype'      => 'varchar',
       'precision'     => 9,
       'character set' => 'utf8',
@@ -49,16 +52,16 @@ class Color extends DBField {
       'arrayValue'    => $this->arrayValue
     );
 
-    $values = array(
+      $values = array(
       'type' => 'varchar',
       'parts' => $parts
     );
 
     // Add support for both SS DB API 3.2 and <3.2
     if (method_exists('DB', 'require_field')) {
-      DB::require_field($this->tableName, $this->name, $values);
+        DB::require_field($this->tableName, $this->name, $values);
     } else {
-      DB::requireField($this->tableName, $this->name, $values);
+        DB::requireField($this->tableName, $this->name, $values);
     }
   }
 
@@ -66,10 +69,11 @@ class Color extends DBField {
    * (non-PHPdoc)
    * @see DBField::scaffoldFormField()
    */
-  public function scaffoldFormField($title = null) {
-    $field = new ColorField($this->name, $title);
+  public function scaffoldFormField($title = null)
+  {
+      $field = new ColorField($this->name, $title);
 
-    return $field;
+      return $field;
   }
 
   /**
@@ -77,8 +81,9 @@ class Color extends DBField {
    *
    * @return null
    */
-  public function nullValue() {
-    return null;
+  public function nullValue()
+  {
+      return null;
   }
 
   /**
@@ -90,14 +95,13 @@ class Color extends DBField {
    */
   protected function formatValue($value)
   {
-    $val = $value;
+      $val = $value;
 
-    if ( $val === null || $val === '' || $val === 0 )
-    {
-      $val = $this->defaultVal;
-    }
+      if ($val === null || $val === '' || $val === 0) {
+          $val = $this->defaultVal;
+      }
 
-    return $val;
+      return $val;
   }
 
   /**
@@ -107,22 +111,24 @@ class Color extends DBField {
    * @param string $value Field's value (RRGGBBAAA)
    * @param mixed $record Associated record
    */
-  public function setValue($value, $record = NULL) {
-    $value = $this->formatValue($value);
+  public function setValue($value, $record = null)
+  {
+      $value = $this->formatValue($value);
 
-    $this->value = $value;
-    $this->hex   = $this->extractHex($value);
-    $this->alpha = intval($this->extractAlpha($value)) / 100;
+      $this->value = $value;
+      $this->hex   = $this->extractHex($value);
+      $this->alpha = intval($this->extractAlpha($value)) / 100;
   }
 
   /**
    * Updates the fiels's value from the Hex and Alpha properties
    */
-  protected function syncValue() {
-    $hex   = $this->hex;
-    $alpha = str_pad(($this->alpha * 100), 3, '0', STR_PAD_LEFT);
+  protected function syncValue()
+  {
+      $hex   = $this->hex;
+      $alpha = str_pad(($this->alpha * 100), 3, '0', STR_PAD_LEFT);
 
-    $this->value = $hex . $alpha;
+      $this->value = $hex . $alpha;
   }
 
   /**
@@ -132,7 +138,7 @@ class Color extends DBField {
    */
   protected function extractHex($value)
   {
-    return substr($value, 0, 6);
+      return substr($value, 0, 6);
   }
 
   /**
@@ -142,7 +148,7 @@ class Color extends DBField {
    */
   protected function extractAlpha($value)
   {
-    return substr($value, -3);
+      return substr($value, -3);
   }
 
   /**
@@ -151,9 +157,9 @@ class Color extends DBField {
    */
   public function setHex($hex)
   {
-    $this->hex = self::format_hex($hex);
-    $this->syncValue();
-    return $this;
+      $this->hex = self::format_hex($hex);
+      $this->syncValue();
+      return $this;
   }
 
   /**
@@ -162,7 +168,7 @@ class Color extends DBField {
    */
   public function Hex()
   {
-    return $this->hex;
+      return $this->hex;
   }
 
   /**
@@ -171,9 +177,9 @@ class Color extends DBField {
    */
   public function setAlpha($alpha)
   {
-    $this->alpha = $alpha;
-    $this->syncValue();
-    return $this;
+      $this->alpha = $alpha;
+      $this->syncValue();
+      return $this;
   }
 
   /**
@@ -182,7 +188,7 @@ class Color extends DBField {
    */
   public function Alpha()
   {
-    return $this->alpha;
+      return $this->alpha;
   }
 
   /**
@@ -191,7 +197,7 @@ class Color extends DBField {
    */
   public function RGB()
   {
-    return self::hex_to_rgb($this->hex);
+      return self::hex_to_rgb($this->hex);
   }
 
   /**
@@ -200,8 +206,8 @@ class Color extends DBField {
    */
   public function R()
   {
-    $rgb = self::hex_to_rgb($this->hex);
-    return $rgb['R'];
+      $rgb = self::hex_to_rgb($this->hex);
+      return $rgb['R'];
   }
 
   /**
@@ -210,8 +216,8 @@ class Color extends DBField {
    */
   public function G()
   {
-    $rgb = self::hex_to_rgb($this->hex);
-    return $rgb['G'];
+      $rgb = self::hex_to_rgb($this->hex);
+      return $rgb['G'];
   }
 
   /**
@@ -220,8 +226,8 @@ class Color extends DBField {
    */
   public function B()
   {
-    $rgb = self::hex_to_rgb($this->hex);
-    return $rgb['B'];
+      $rgb = self::hex_to_rgb($this->hex);
+      return $rgb['B'];
   }
 
   /**
@@ -231,17 +237,15 @@ class Color extends DBField {
    */
   public static function format_hex($hex)
   {
-    if ( strlen($hex) < 6 )
-    {
-      $r = substr($hex, 0, 1);
-      $g = substr($hex, 1, 1);
-      $b = substr($hex, 2, 1);
+      if (strlen($hex) < 6) {
+          $r = substr($hex, 0, 1);
+          $g = substr($hex, 1, 1);
+          $b = substr($hex, 2, 1);
 
-      return $r . $r . $g . $g . $b . $b;
-    }
-    else {
-      return $hex;
-    }
+          return $r . $r . $g . $g . $b . $b;
+      } else {
+          return $hex;
+      }
   }
 
   /**
@@ -251,9 +255,9 @@ class Color extends DBField {
    */
   public static function hex_to_rgb($hex)
   {
-    $hex = self::format_hex($hex);
+      $hex = self::format_hex($hex);
 
-    return array(
+      return array(
       'R' => hexdec(substr($hex, 0, 2)),
       'G' => hexdec(substr($hex, 2, 2)),
       'B' => hexdec(substr($hex, 4, 2))
@@ -269,10 +273,10 @@ class Color extends DBField {
    */
   public static function rgb_to_hex($r, $g, $b)
   {
-    $r = str_pad(dechex($r), 2, '0', STR_PAD_LEFT);
-    $g = str_pad(dechex($g), 2, '0', STR_PAD_LEFT);
-    $b = str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
+      $r = str_pad(dechex($r), 2, '0', STR_PAD_LEFT);
+      $g = str_pad(dechex($g), 2, '0', STR_PAD_LEFT);
+      $b = str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
 
-    return $r . $g . $b;
-  }  
+      return $r . $g . $b;
+  }
 }

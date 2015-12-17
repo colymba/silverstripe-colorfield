@@ -8,9 +8,10 @@
  * @package SS_ColorField
  * @subpackage Form
  */
-class ColorField extends FormField {
+class ColorField extends FormField
+{
 
-  /**
+    /**
    * Field's max length RRGGBBAAA
    * @var int
    */
@@ -56,18 +57,20 @@ class ColorField extends FormField {
    * @param string $value    Field's value
    * @param array  $jsConfig JQuery Minicolors plugin config
    */
-  public function __construct($name, $title = null, $value = null, $jsConfig = array()) {
-    $this->jsConfig = array_merge($this->jsConfig, $jsConfig);
+  public function __construct($name, $title = null, $value = null, $jsConfig = array())
+  {
+      $this->jsConfig = array_merge($this->jsConfig, $jsConfig);
 
-    parent::__construct($name, $title, $value);
+      parent::__construct($name, $title, $value);
   }
 
   /**
    * Returns the field's HTML attributes
    * @return array HTML attributes
    */
-  public function getAttributes() {
-    return array_merge(
+  public function getAttributes()
+  {
+      return array_merge(
       parent::getAttributes(),
       array(
         'size' => $this->maxLength,
@@ -80,8 +83,9 @@ class ColorField extends FormField {
    * Return the JQuery Minicolors plugin config
    * @return array Minicolors plugin config
    */
-  public function getJSConfig() {
-    return $this->jsConfig;
+  public function getJSConfig()
+  {
+      return $this->jsConfig;
   }
 
   /**
@@ -90,9 +94,10 @@ class ColorField extends FormField {
    * @param string $key Config name
    * @param mixed $val Config value
    */
-  public function setJSConfig($key, $val) {
-    $this->jsConfig[$key] = $val;
-    return $this;
+  public function setJSConfig($key, $val)
+  {
+      $this->jsConfig[$key] = $val;
+      return $this;
   }
 
 
@@ -101,33 +106,33 @@ class ColorField extends FormField {
    * 
    * @return string
    */
-  public function Field($properties = array()) {
-    Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery/jquery.js');
-    Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery-entwine/dist/jquery.entwine-dist.js');
+  public function Field($properties = array())
+  {
+      Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery/jquery.js');
+      Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery-entwine/dist/jquery.entwine-dist.js');
 
-    Requirements::javascript(SS_COLORFIELD . '/js/vendor/jquery-minicolors/jquery.minicolors.js');
-    Requirements::css(SS_COLORFIELD . '/js/vendor/jquery-minicolors/jquery.minicolors.css');
+      Requirements::javascript(SS_COLORFIELD . '/js/vendor/jquery-minicolors/jquery.minicolors.js');
+      Requirements::css(SS_COLORFIELD . '/js/vendor/jquery-minicolors/jquery.minicolors.css');
 
-    Requirements::javascript(SS_COLORFIELD . '/js/ColorField.js');
-    Requirements::css(SS_COLORFIELD . '/css/ColorField.css');
+      Requirements::javascript(SS_COLORFIELD . '/js/ColorField.js');
+      Requirements::css(SS_COLORFIELD . '/css/ColorField.css');
 
-    $jsConfig = array_merge($this->jsConfig, $this->jsConfigOverrides);
+      $jsConfig = array_merge($this->jsConfig, $this->jsConfigOverrides);
 
-    $id = $this->ID();
+      $id = $this->ID();
 
-    $color = DBField::create_field('Color', $this->Value(), 'Color');
-    $hex   = $color->Hex();
-    $red   = $color->R();
-    $green = $color->G();
-    $blue  = $color->B();
-    $alpha = $color->Alpha();
+      $color = DBField::create_field('Color', $this->Value(), 'Color');
+      $hex   = $color->Hex();
+      $red   = $color->R();
+      $green = $color->G();
+      $blue  = $color->B();
+      $alpha = $color->Alpha();
 
-    if (!$jsConfig['opacity'])
-    {
-      $alpha = 1;
-    }
+      if (!$jsConfig['opacity']) {
+          $alpha = 1;
+      }
 
-    $data = array(
+      $data = array(
       'JSConfig' => htmlspecialchars(json_encode($jsConfig)),
       'Options' => array(
         'Alpha' => $this->jsConfig['opacity']
@@ -178,6 +183,6 @@ class ColorField extends FormField {
       )
     );
 
-    return $this->customise($data)->renderWith('ColorField');
+      return $this->customise($data)->renderWith('ColorField');
   }
 }
