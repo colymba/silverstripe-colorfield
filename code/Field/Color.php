@@ -11,7 +11,7 @@
  * @package SS_ColorField
  * @subpackage Field
  */
-class Color extends DBField
+class SS_Color extends DBField
 {
 
     /**
