@@ -121,7 +121,7 @@ class ColorField extends FormField
 
       $id = $this->ID();
 
-      $color = DBField::create_field('Color', $this->Value(), 'Color');
+      $color = DBField::create_field('SS_Color', $this->Value(), 'Color');
       $hex   = $color->Hex();
       $red   = $color->R();
       $green = $color->G();
