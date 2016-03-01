@@ -1,4 +1,4 @@
-(function($) {  
+(function($) {
   $.entwine('ss', function($) {
     $.entwine('colymba', function($) {
 
@@ -39,7 +39,7 @@
                 $blue   = $parent.find('.colorFieldControls .b'),
                 $alpha  = $parent.find('.colorFieldControls .alpha'),
                 rgba    = $proxy.minicolors('rgbObject');
-           
+
               $color.css({
                 backgroundColor: hex,
                 opacity: rgba.a
@@ -65,7 +65,7 @@
         onmatch: function(){},
         onunmatch: function(){},
 
-        onchange: function(e){          
+        onchange: function(e){
           var $parent  = this.parents('.field'),
               $proxy   = $parent.find('.colorFieldProxy'),
               $r       = $parent.find('.colorFieldControls .r'),
@@ -93,7 +93,7 @@
               $g.val(g);
               $b.val(b);
 
-              $proxy.minicolors('value', '#' + 
+              $proxy.minicolors('value', '#' +
                 ('00' + r.toString(16)).slice(-2) +
                 ('00' + g.toString(16)).slice(-2) +
                 ('00' + b.toString(16)).slice(-2)
@@ -119,7 +119,7 @@
         onmatch: function(){},
         onunmatch: function(){},
 
-        onchange: function(e){          
+        onchange: function(e){
           var $parent = this.parents('.field'),
               $proxy  = $parent.find('.colorFieldProxy');
 

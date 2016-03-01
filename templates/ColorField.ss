@@ -10,7 +10,7 @@ $Controls.Proxy
     <label class="left" for="$Controls.Hex.ID">Hex</label>
     $Controls.Hex
   </span>
-  
+
   <span class="rgb">
     <label class="left" for="$Controls.Red.ID">R</label> $Controls.Red
     <label class="left" for="$Controls.Green.ID">G</label> $Controls.Green
