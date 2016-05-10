@@ -188,7 +188,7 @@ class SS_Color extends DBField
    */
   public function Alpha()
   {
-      return $this->alpha;
+    return number_format($this->alpha, 2);
   }
 
   /**
