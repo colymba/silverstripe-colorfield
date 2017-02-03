@@ -28,7 +28,7 @@ class SS_Color extends DBField
 
   /**
    * DBField contrustor
-   * 
+   *
    * @param string $name Field name
    */
   public function __construct($name = null)
@@ -89,7 +89,7 @@ class SS_Color extends DBField
   /**
    * Make sure the field's actual value is in an acceptable format
    * or convert's it.
-   * 
+   *
    * @param  mixed $value Field's value
    * @return string       Correct field's value
    */
@@ -107,7 +107,7 @@ class SS_Color extends DBField
   /**
    * Sets the field's value
    * and sync Hex and Alpah properties.
-   * 
+   *
    * @param string $value Field's value (RRGGBBAAA)
    * @param mixed $record Associated record
    */

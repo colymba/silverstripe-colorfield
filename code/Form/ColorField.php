@@ -20,7 +20,7 @@ class ColorField extends FormField
   /**
    * JQuery Minicolors plugin config
    * https://github.com/claviska/jquery-minicolors
-   * 
+   *
    * @var array
    */
   protected $jsConfig = array(
@@ -42,7 +42,7 @@ class ColorField extends FormField
 
   /**
    * JQuery Minicolors plugin config overrides
-   * 
+   *
    * @var array
    */
   protected $jsConfigOverrides = array(
@@ -51,7 +51,7 @@ class ColorField extends FormField
 
   /**
    * Return a new ColorField
-   * 
+   *
    * @param string $name     Field's name
    * @param string $title    Field's title
    * @param string $value    Field's value
@@ -90,7 +90,7 @@ class ColorField extends FormField
 
   /**
    * Sets a JQuery Minicolors plugin config option
-   * 
+   *
    * @param string $key Config name
    * @param mixed $val Config value
    */
@@ -103,7 +103,7 @@ class ColorField extends FormField
 
   /**
    * Return's the field for the template
-   * 
+   *
    * @return string
    */
   public function Field($properties = array())

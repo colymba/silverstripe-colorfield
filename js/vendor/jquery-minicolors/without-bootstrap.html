@@ -3,14 +3,14 @@
 <head>
 	<title>jQuery MiniColors</title>
 	<meta charset="utf-8">
-	
+
 	<!-- jQuery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	
+
 	<!-- MiniColors -->
 	<script src="jquery.minicolors.js"></script>
 	<link rel="stylesheet" href="jquery.minicolors.css">
-	
+
 	<style>
 		body {
 			font: 16px sans-serif;
@@ -32,18 +32,18 @@
 			color: #888;
 		}
 	</style>
-	
+
 	<script>
 		$(document).ready( function() {
-			
+
             $('.demo').each( function() {
                 //
                 // Dear reader, it's actually very easy to initialize MiniColors. For example:
                 //
                 //  $(selector).minicolors();
                 //
-                // The way I've done it below is just for the demo, so don't get confused 
-                // by it. Also, data- attributes aren't supported at this time. Again, 
+                // The way I've done it below is just for the demo, so don't get confused
+                // by it. Also, data- attributes aren't supported at this time. Again,
                 // they're only used for the purposes of this demo.
                 //
 				$(this).minicolors({
@@ -63,19 +63,19 @@
 					},
 					theme: 'default'
 				});
-                
+
             });
-			
+
 		});
 	</script>
 </head>
 <body>
-	
+
 	<h1>MiniColors Demo (without Bootstrap)</h1>
 	<p>
 		<a href="index.html">&laquo; Back to the Bootstrap demo</a>
 	</p>
-	
+
 	<!-- Control Types -->
 	<h3>Control Types</h3>
 	<div class="form-group">
@@ -94,7 +94,7 @@
 		<label for="wheel-demo">Wheel</label>
 		<input type="text" id="wheel-demo" class="demo" data-control="wheel" value="#ff99ee">
 	</div>
-	
+
 	<!-- Input modes -->
 	<h3>Input Modes</h3>
 	<div class="form-group">
@@ -112,7 +112,7 @@
 		<br>
 		<input type="text" id="inline" class="demo" data-inline="true" value="#4fc8db">
 	</div>
-			
+
 	<!-- Positions -->
 	<h3>Positions</h3>
 	<div class="form-group">
@@ -131,7 +131,7 @@
 		<label for="position-top-right">top right</label>
 		<input type="text" id="position-top-right" class="demo" data-position="top right" value="#0088cc">
 	</div>
-			
+
 	<!-- and more -->
 	<h3>&hellip;and more!</h3>
 	<div class="form-group">
@@ -149,6 +149,6 @@
 		<br>
 		<input type="text" id="letter-case" class="demo" data-letterCase="uppercase">
 	</div>
-	
+
 </body>
 </html>
