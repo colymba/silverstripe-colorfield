@@ -61,11 +61,21 @@
       });
 
 
-      $('.colorFieldControls input').entwine({
+      $('.colorFieldControls .hex input, .colorFieldControls .rgb input, .colorFieldControls .alpha input').entwine({
         onmatch: function(){},
         onunmatch: function(){},
 
         onchange: function(e){          
+          this.updateProxy(e);
+        },
+        onkeyup: function(e){
+          this.updateProxy(e);
+        },
+        onfocusout: function(e){
+          this.updateProxy(e);
+        },
+
+        updateProxy: function(e){
           var $parent  = this.parents('.field'),
               $proxy   = $parent.find('.colorFieldProxy'),
               $r       = $parent.find('.colorFieldControls .r'),
@@ -73,6 +83,9 @@
               $b       = $parent.find('.colorFieldControls .b'),
               type     = this.attr('name').split('_').pop(),
               rgbRegEx = new RegExp('[^0-9]', 'i'),
+              hexKeys  = "0123456789abcdefABCDEF",
+              rgbKeys  = "0123456789",
+              alphaKeys = "0123456789",
               r, g, b, a;
 
           switch (type)
@@ -80,6 +93,11 @@
             case 'red':
             case 'green':
             case 'blue':
+              if (e.type === "keyup" && rgbKeys.indexOf(e.key) === -1)
+              {
+                return;
+              }
+
               r = $r.val().replace(rgbRegEx, '');
               r = (!r) ? 0 : parseInt(r);
 
@@ -101,7 +119,12 @@
               break;
 
             case 'alpha':
-              a = this.val().replace(new RegExp('[^0-9.]', 'i'), '');
+              if (e.type === "keyup" && alphaKeys.indexOf(e.key) === -1)
+              {
+                return;
+              }
+
+              a = this.val().replace(new RegExp('[^0-9.,]', 'i'), '');
               a = (!a) ? 1 : parseFloat(a);
 
               if ( a < 0 ) { a = 0; }
@@ -109,6 +132,17 @@
 
               this.val(a);
               $proxy.minicolors('opacity', a);
+              break;
+
+            case 'hex':
+              if (e.type === "keyup" && hexKeys.indexOf(e.key) !== -1 && this.val().length === 6)
+              {
+                $proxy.minicolors('value', '#' + this.val());
+              }
+              else if (e.type === "change" || e.type === "focusout")
+              {
+                $proxy.minicolors('value', '#' + this.val());
+              }
               break;
           }
         }
