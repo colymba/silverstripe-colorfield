@@ -9,7 +9,7 @@
     "email": "thierry@colymba.com"
   }],
   "require": {
-    "silverstripe/framework": ">=3"
+    "silverstripe/framework": "^3.1"
   },
   "repositories": [{
     "type": "vcs",
