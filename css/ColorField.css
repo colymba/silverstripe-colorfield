@@ -15,6 +15,8 @@
   overflow: hidden;
   margin: 0 20px 20px 0;
   background-color: #fff;
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%), linear-gradient(-45deg, #eee 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #eee 75%), linear-gradient(-45deg, transparent 75%, #eee 75%);
+  background-size: 10px 10px;
   border-radius: 5px; }
   .colorFieldPreview .color {
     float: left;
