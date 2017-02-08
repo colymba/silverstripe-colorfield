@@ -178,7 +178,11 @@ class ColorField extends FormField
         'Brightness' => NumericField::create($id . '_brightness', '', $brightness, 3)
                         ->addExtraClass('no-change-track'),
         */
-        'Alpha'      => NumericField::create($id . '_alpha', '', $alpha, 3)
+        'Alpha'      => TextField::create($id . '_alpha', '', $alpha, 3) //using TextField so 'step' can be overriden
+                        ->setAttribute('min', 0)
+                        ->setAttribute('max', 1)
+                        ->setAttribute('step', '0.01')
+                        ->setAttribute('type', 'number')
                         ->addExtraClass('no-change-track alpha')
       )
     );
