@@ -10,7 +10,7 @@
         onunmatch: function(){},
         sync: function()
         {
-          var $parent = this.parents('.field.color'),
+          var $parent = this.closest('.field.color'),
               $proxy  = $parent.find('.colorFieldProxy'),
               hex     = $proxy.val().replace('#', ''),
               alpha   = parseFloat($proxy.attr('data-opacity')) * 100;
@@ -23,14 +23,14 @@
 
       $('.colorFieldProxy').entwine({
         onmatch: function(){
-          var $parent = this.parents('.field.color'),
+          var $parent = this.closest('.field.color'),
               $field  = $parent.find('.colorField'),
               config  = $field.data('config') ? $field.data('config') : {};
 
 
           config.change = function(hex, opacity) {
             var $proxy  = $(this),
-                $parent = $proxy.parents('.field.color'),
+                $parent = $proxy.closest('.field.color'),
                 $field  = $parent.find('.colorField'),
                 $color  = $parent.find('.colorFieldPreview .color'),
                 $hex    = $parent.find('.colorFieldControls .hex'),
@@ -76,7 +76,7 @@
         },
 
         updateProxy: function(e){
-          var $parent  = this.parents('.field.color'),
+          var $parent  = this.closest('.field.color'),
               $proxy   = $parent.find('.colorFieldProxy'),
               $r       = $parent.find('.colorFieldControls .r'),
               $g       = $parent.find('.colorFieldControls .g'),
@@ -154,7 +154,7 @@
         onunmatch: function(){},
 
         onchange: function(e){
-          var $parent = this.parents('.field.color'),
+          var $parent = this.closest('.field.color'),
               $proxy  = $parent.find('.colorFieldProxy');
 
           $proxy.minicolors('settings', {control: this.val()});
